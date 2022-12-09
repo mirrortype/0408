@@ -8,4 +8,4 @@ random.choice(who)
 random.choice(where)
 random.choice(what)
 
-print(f"{murderer}이가 {ocasion}에서 {tool}"(으)로 사람을 죽였다.")
+print(f"{murderer}이가 {ocasion}에서 {tool}(으)로 사람을 죽였다.")

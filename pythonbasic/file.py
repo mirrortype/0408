@@ -18,3 +18,4 @@ print(lines)
 
 f.close()
 # 불러온 파일을 닫아줌
+

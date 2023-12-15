@@ -21,3 +21,4 @@ def tlq(word_in):
 
 
 tlq(input("삼행시를 지을 단어를 입력하세요 :"))
+

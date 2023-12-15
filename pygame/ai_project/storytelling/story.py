@@ -7,7 +7,7 @@ pygame.init()
 # 화면 크기 설정
 screen_size = (1024, 1024)
 screen = pygame.display.set_mode(screen_size)
-pygame.display.set_caption("다음 이미지로 넘어가기")
+pygame.display.set_caption("다음 이미지로 넘 어가기")
 
 # 이미지 파일 리스트
 image_paths = ["path/to/image1.jpg", "path/to/image2.jpg", "path/to/image3.jpg"]

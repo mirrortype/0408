@@ -1,0 +1,66 @@
+import pygame
+import sys
+
+# 초기화
+pygame.init()
+
+# 화면 크기 설정
+WIDTH, HEIGHT = 1600, 800
+screen = pygame.display.set_mode((WIDTH, HEIGHT))
+pygame.display.set_caption("1600x800 파이게임 화면")
+
+# 배경 이미지 로드
+background_image = pygame.image.load("pygame/ai_project/cllimate_crisis/image/sea.png")
+background_image = pygame.transform.scale(background_image, (WIDTH, HEIGHT))
+
+# 첫 번째 추가 이미지 로드 (중앙 위에 위치)
+example_image1 = pygame.image.load("pygame/ai_project/cllimate_crisis/image/blue.png")
+example_image1 = pygame.transform.scale(example_image1, (1550, 240))
+
+x_position1 = (WIDTH - 1550) // 2
+y_position1 = HEIGHT - 260  # 이미지를 약간 위로 이동
+
+# 두 번째 추가 이미지 로드 (화면 오른쪽에 위치)
+example_image2 = pygame.image.load("pygame/ai_project/cllimate_crisis/image/SEACAT-removebg-preview.png")
+example_image2 = pygame.transform.scale(example_image2, (700, 450))  # 크기 조절
+x_position2 = WIDTH -700  # 오른쪽 끝에서 50px 왼쪽으로
+y_position2 = 150  # 화면 상단에서 50px 아래로
+
+# 한글 폰트 설정 (폰트 파일이 프로젝트 디렉토리에 있어야 합니다.)
+font_path = "pygame/ai_project/cllimate_crisis/HakgyoansimWoojuR.ttf"  # 여기에 폰트 파일 경로를 지정하세요.
+font = pygame.font.Font(font_path, 48)  # 한글 폰트, 크기 48
+
+# 텍스트 리스트
+texts = ['찌발럼아!', '뭐하냐', '??', '감사하겟냐?']
+current_text_index = 0  # 현재 텍스트 인덱스
+
+# 게임 루프
+while True:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            pygame.quit()
+            sys.exit()
+        elif event.type == pygame.KEYDOWN:  # 키가 눌렸을 때
+            if event.key == pygame.K_SPACE:  # 스페이스바를 눌렀을 때
+                current_text_index = (current_text_index + 1) % len(texts)
+        elif event.type == pygame.MOUSEBUTTONDOWN:  # 마우스 클릭했을 때
+            current_text_index = (current_text_index + 1) % len(texts)
+
+    # 배경 그리기
+    screen.blit(background_image, (0, 0))
+
+    # 첫 번째 추가 이미지 그리기 (중앙 위)
+    screen.blit(example_image1, (x_position1, y_position1))
+
+    # 두 번째 추가 이미지 그리기 (화면 오른쪽 상단)
+    screen.blit(example_image2, (x_position2, y_position2))
+
+    # 텍스트 렌더링
+    text_surface = font.render(texts[current_text_index], True, (255, 255, 255))
+    text_rect = text_surface.get_rect(bottomleft=(90, HEIGHT - 160))
+
+    # 텍스트 그리기
+    screen.blit(text_surface, text_rect)
+
+    # 화면 업데이트
+    pygame.display.flip()

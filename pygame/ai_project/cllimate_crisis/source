@@ -31,7 +31,7 @@ font_path = "pygame/ai_project/cllimate_crisis/HakgyoansimWoojuR.ttf"  # 여기�
 font = pygame.font.Font(font_path, 48)  # 한글 폰트, 크기 48
 
 # 텍스트 리스트
-texts = ['찌발럼아!', '뭐하냐', '??', '감사하겟냐?']
+texts = ['야옹!', '애옹?', '^$&^*@/', '음, 언어 패치가...', '아, 아. 들려? 괜찮은 거야?,', '나는 해냥이야!', '응? 여기는...', '그야! 망망대해지.', '네가 왜 여기에 있냐고?', '그건 나도 모르지! 나는 물에 빠져 있는 너를 건져올렸을 뿐이야.', '그러고 보니, 너는 사람이야?']
 current_text_index = 0  # 현재 텍스트 인덱스
 
 # 게임 루프

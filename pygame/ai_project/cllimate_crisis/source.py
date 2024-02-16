@@ -116,7 +116,7 @@ while True:
 
 # 배경 이미지  설정 함수
 def set_background(image_path):
-    background = pygame.image.load(image_path)
+    background  = pygame.image.load(image_path)
     background = pygame.transform.scale(background, (WIDTH, HEIGHT))
     screen.blit(background, (0, 0))
 

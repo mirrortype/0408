@@ -114,7 +114,7 @@ while True:
                     # 새로운 장면 후처리 작업 수행 (예: 초기화)
                     # 새로운 장면에서 다시 텍스트를 표시할 수 있도록 current_text_index를 초기화하거나 적절한 값으로 설정
 
-# 배경 이미지 설정 함수
+# 배경 이미지  설정 함수
 def set_background(image_path):
     background = pygame.image.load(image_path)
     background = pygame.transform.scale(background, (WIDTH, HEIGHT))

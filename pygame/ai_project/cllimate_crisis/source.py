@@ -51,6 +51,10 @@ current_text_index = 0  # 현재 텍스트 인덱스
 # 보이지 않게 할 이미지를 표시하는 변수
 show_full_screen_image = True
 
+# 새로운 장면 배경 이미지 로드
+new_scene_background = pygame.image.load("pygame/ai_project/cllimate_crisis/image/new_scene_background.png")
+new_scene_background = pygame.transform.scale(new_scene_background, (WIDTH, HEIGHT))
+
 # 게임 루프
 while True:
     for event in pygame.event.get():
@@ -60,33 +64,76 @@ while True:
         elif event.type == pygame.KEYDOWN:  # 키가 눌렸을 때
             if event.key == pygame.K_SPACE:  # 스페이스바를 눌렀을 때
                 current_text_index = (current_text_index + 1) % len(texts)
-        elif event.type == pygame.MOUSEBUTTONDOWN:  # 마우스 클릭했을 때
-            if show_full_screen_image:
-                # 이미지를 클릭하면 보이지 않게 설정
-                show_full_screen_image = False
-            else:
+                if current_text_index == len(texts) - 1:  # 텍스트가 리스트의 끝에 도달하면
+                    # 새로운 장면으로 넘어감
+                    screen.blit(new_scene_background, (0, 0))  # 새로운 장면 배경 표시
+                    pygame.display.flip()
+                    pygame.time.wait(2000)  # 2초간 대기
+                    # 새로운 장면 후처리 작업 수행 (예: 초기화)
+                    # 새로운 장면에서 다시 텍스트를 표시할 수 있도록 current_text_index를 초기화하거나 적절한 값으로 설정
+
+# 새로운 장면 배경 이미지 로드
+new_scene_background = pygame.image.load("pygame/ai_project/cllimate_crisis/image/new_scene_background.png")
+new_scene_background = pygame.transform.scale(new_scene_background, (WIDTH, HEIGHT))
+
+# 게임 루프
+while True:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            pygame.quit()
+            sys.exit()
+        elif event.type == pygame.KEYDOWN:  # 키가 눌렸을 때
+            if event.key == pygame.K_SPACE:  # 스페이스바를 눌렀을 때
                 current_text_index = (current_text_index + 1) % len(texts)
+                if current_text_index == len(texts) - 1:  # 텍스트가 리스트의 끝에 도달하면
+                    # 새로운 장면으로 넘어감
+                    screen.blit(new_scene_background, (0, 0))  # 새로운 장면 배경 표시
+                    pygame.display.flip()
+                    pygame.time.wait(2000)  # 2초간 대기
+                    # 새로운 장면 후처리 작업 수행 (예: 초기화)
+                    # 새로운 장면에서 다시 텍스트를 표시할 수 있도록 current_text_index를 초기화하거나 적절한 값으로 설정
 
-    # 배경 그리기
-    screen.blit(background_image, (0, 0))
+# 새로운 장면 배경 이미지 로드
+new_scene_background = pygame.image.load("pygame/ai_project/cllimate_crisis/image/seeeeeeeeeea.png")
+new_scene_background = pygame.transform.scale(new_scene_background, (WIDTH, HEIGHT))
 
-    # 두 번째 추가 이미지 그리기 (화면 오른쪽 상단)
-    screen.blit(example_image2, (x_position2, y_position2))
+# 게임 루프
+while True:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            pygame.quit()
+            sys.exit()
+        elif event.type == pygame.KEYDOWN:  # 키가 눌렸을 때
+            if event.key == pygame.K_SPACE:  # 스페이스바를 눌렀을 때
+                current_text_index = (current_text_index + 1) % len(texts)
+                if current_text_index == len(texts) - 1:  # 텍스트가 리스트의 끝에 도달하면
+                    # 새로운 장면으로 넘어감
+                    screen.blit(new_scene_background, (0, 0))  # 새로운 장면 배경 표시
+                    pygame.display.flip()
+                    pygame.time.wait(2000)  # 2초간 대기
+                    # 새로운 장면 후처리 작업 수행 (예: 초기화)
+                    # 새로운 장면에서 다시 텍스트를 표시할 수 있도록 current_text_index를 초기화하거나 적절한 값으로 설정
 
-    # 첫 번째 추가 이미지 그리기 (중앙 위)
-    screen.blit(example_image1, (x_position1, y_position1))
+# 배경 이미지 설정 함수
+def set_background(image_path):
+    background = pygame.image.load(image_path)
+    background = pygame.transform.scale(background, (WIDTH, HEIGHT))
+    screen.blit(background, (0, 0))
 
+# 게임 루프
+while True:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            pygame.quit()
+            sys.exit()
+        elif event.type == pygame.KEYDOWN:  # 키가 눌렸을 때
+            if event.key == pygame.K_SPACE:  # 스페이스바를 눌렀을 때
+                current_text_index = (current_text_index + 1) % len(texts)
+                if current_text_index == len(texts) - 1:  # 텍스트가 리스트의 끝에 도달하면
+                    # 새로운 장면으로 넘어감
+                    set_background("pygame/ai_project/cllimate_crisis/image/new_scene_background.png")
+                    pygame.display.flip()
+                    pygame.time.wait(2000)  # 2초간 대기
+                    # 새로운 장면 후처리 작업 수행 (예: 초기화)
+                    # 새로운 장면에서 다시 텍스트를 표시할 수 있도록 current_text_index를 초기화하거나 적절한 값으로 설정
 
-    # 텍스트 렌더링
-    text_surface = font.render(texts[current_text_index], True, (255, 255, 255))
-    text_rect = text_surface.get_rect(bottomleft=(90, HEIGHT - 160))
-
-    # 텍스트 그리기
-    screen.blit(text_surface, text_rect)
-
-    # 추가 이미지 그리기 (화면에 꽉 차는 이미지)
-    if show_full_screen_image:
-        screen.blit(full_screen_image, (0, 0))
-
-    # 화면 업데이트
-    pygame.display.flip()
